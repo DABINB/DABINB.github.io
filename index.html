@@ -153,6 +153,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://dabinb.github.io.com/2025/01/09/CSST_Net/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="WangBin">
+      <meta itemprop="description" content="低头赶路 敬事如仪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王斌的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/09/CSST_Net/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-09 21:51:59 / 修改时间：21:50:46" itemprop="dateCreated datePublished" datetime="2025-01-09T21:51:59+08:00">2025-01-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TIM-A-High-Precision-Aeroengine-Bearing-Fault-Diagnosis-Based-on-Spatial-Enhancement-Convolution-and-Vision-Transformer🥳"><a href="#TIM-A-High-Precision-Aeroengine-Bearing-Fault-Diagnosis-Based-on-Spatial-Enhancement-Convolution-and-Vision-Transformer🥳" class="headerlink" title="[TIM] A High-Precision Aeroengine Bearing Fault Diagnosis Based on Spatial Enhancement Convolution and Vision Transformer🥳"></a><strong>[TIM] A High-Precision Aeroengine Bearing Fault Diagnosis Based on Spatial Enhancement Convolution and Vision Transformer</strong>🥳</h1><p><strong>This is the official PyTorch codes for the paper:</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/DABINB">Bin Wang</a>, Yongcheng Xiong, <a target="_blank" rel="noopener" href="https://homepage.hit.edu.cn/tanliguo?lang=zh">Liguo Tan*</a>. A high-precision aeroengine bearing fault diagnosis based on spatial enhancement convolution and vision transformer[J]. IEEE Transactions on Instrumentation and Measurement, 2025, 74: 1-15.</p>
+</blockquote>
+<h1 id="Network-Architecture-💐"><a href="#Network-Architecture-💐" class="headerlink" title="Network Architecture 💐"></a>Network Architecture 💐</h1><p><img src="https://github.com/user-attachments/assets/c88b8594-66a6-40de-b1aa-6dc1e9096408" alt="CSST-Net"></p>
+<h1 id="News-🚀"><a href="#News-🚀" class="headerlink" title="News 🚀"></a>News 🚀</h1><ul>
+<li>Dec 18, 2024: We release training code.</li>
+</ul>
+<h1 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>We test the code on Pytorch 2.2.1 + CUDA 11.8</p>
+<ol>
+<li>Create a new conda environment, or take advantage of an existing conda environment.<blockquote>
+<p>[!NOTE]<br>Make sure python version 3.9 is available.</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n CSSTNet python=3.9</span><br><span class="line">conda activate CSSTNet</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Install dependencies<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Training-and-Evaluation"><a href="#Training-and-Evaluation" class="headerlink" title="Training and Evaluation"></a>Training and Evaluation</h1><h2 id="Create-New-folder"><a href="#Create-New-folder" class="headerlink" title="Create New folder"></a>Create New folder</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|-CSST_Net</span><br><span class="line">  |-data</span><br><span class="line">  |-Loss_Acc</span><br><span class="line">  |-predata</span><br><span class="line">  |-results</span><br></pre></td></tr></table></figure>
+
+<h2 id="Prepare-dataset"><a href="#Prepare-dataset" class="headerlink" title="Prepare dataset"></a>Prepare dataset</h2><p>You can download the datasets on <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1Km1Go4ilB_bI033SBJ7eJ0uCzbqEqbgt">Google Drive</a>。</p>
+<p>Then arrange the data in the following format：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|-data</span><br><span class="line">  |-data1.npy</span><br><span class="line">  |-data2.npy</span><br><span class="line">  |-data3.npy</span><br><span class="line">  |-data4.npy</span><br><span class="line">  |-data5.npy</span><br></pre></td></tr></table></figure>
+<p>Once you have downloaded the data set and settled it according to the above requirements, run the following statement to make the data you need for training and testing.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dataset.py</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[!CAUTION]<br>The current code can only be used to make noisy data, if you make noise-free data, please manually change the code.</p>
+</blockquote>
+<p>After production, the predata folder will contain the following files:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">|-predata</span><br><span class="line">  |-data.npy</span><br><span class="line">  |-label.npy</span><br><span class="line">  |-data_0.npy</span><br><span class="line">  |-label_0.npy</span><br><span class="line">  |-data_2.npy</span><br><span class="line">  |-label_2.npy</span><br><span class="line">  |-data_6.npy</span><br><span class="line">  |-label_6.npy</span><br><span class="line">  |-data_10.npy</span><br><span class="line">  |-label_10.npy</span><br><span class="line">  |-data_-2.npy</span><br><span class="line">  |-label_-2.npy</span><br></pre></td></tr></table></figure>
+
+<h2 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h2><p>Once the data set is ready, training can be performed</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Please match the pre-trained weights with the dataset for testing, then:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python test.py</span><br></pre></td></tr></table></figure>
+
+<h1 id="Citation-💓"><a href="#Citation-💓" class="headerlink" title="Citation  💓"></a>Citation  💓</h1><p>If you find our work useful for your research, please cite us:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@ARTICLE&#123;10758748,</span><br><span class="line">  author=&#123;Wang, Bin and Xiong, Yongcheng and Tan, Liguo&#125;,</span><br><span class="line">  journal=&#123;IEEE Transactions on Instrumentation and Measurement&#125;, </span><br><span class="line">  title=&#123;A High-Precision Aeroengine Bearing Fault Diagnosis Based on Spatial Enhancement Convolution and Vision Transformer&#125;, </span><br><span class="line">  year=&#123;2025&#125;,</span><br><span class="line">  volume=&#123;74&#125;,</span><br><span class="line">  number=&#123;&#125;,</span><br><span class="line">  pages=&#123;1-15&#125;,</span><br><span class="line">  keywords=&#123;Feature extraction;Fault diagnosis;Aircraft propulsion;Accuracy;Noise;Convolution;Time-frequency analysis;Transforms;Transformers;Computer vision;Aeroengine intershaft bearing;convolutional neural network (CNN);multisensor information fusion;spatial enhancement;vision transformer (VIT)&#125;,</span><br><span class="line">  doi=&#123;10.1109/TIM.2024.3502884&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Contact-☺️"><a href="#Contact-☺️" class="headerlink" title="Contact ☺️"></a>Contact ☺️</h1><p>If you have any questions, please feel free to contact the author.</p>
+<p>Bin Wang: <a href="23s104106@stu.hit.edu.cn">23s104106@stu.hit.edu.cn</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://dabinb.github.io.com/2023/11/29/Just-for-test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -263,7 +364,7 @@
 <h2 id="Social-link"><a href="#Social-link" class="headerlink" title="Social link"></a>Social link</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/DABINB?tab=repositories">Wa_bin github</a></li>
 <li>Wa_bin Wechat : Wa_bin</li>
-<li>mail : <a href="mailto:&#50;&#x33;&#83;&#49;&#x30;&#x34;&#49;&#48;&#x36;&#64;&#115;&#116;&#117;&#46;&#x68;&#x69;&#x74;&#x2e;&#x65;&#100;&#117;&#46;&#x63;&#x6e;">&#50;&#x33;&#83;&#49;&#x30;&#x34;&#49;&#48;&#x36;&#64;&#115;&#116;&#117;&#46;&#x68;&#x69;&#x74;&#x2e;&#x65;&#100;&#117;&#46;&#x63;&#x6e;</a> or <a href="mailto:&#50;&#x35;&#56;&#50;&#50;&#49;&#55;&#55;&#x35;&#52;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#50;&#x35;&#56;&#50;&#50;&#49;&#55;&#55;&#x35;&#52;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
+<li>mail : <a href="mailto:&#x32;&#51;&#x53;&#x31;&#x30;&#x34;&#x31;&#x30;&#54;&#64;&#x73;&#x74;&#117;&#x2e;&#x68;&#x69;&#116;&#x2e;&#101;&#100;&#117;&#x2e;&#x63;&#110;">&#x32;&#51;&#x53;&#x31;&#x30;&#x34;&#x31;&#x30;&#54;&#64;&#x73;&#x74;&#117;&#x2e;&#x68;&#x69;&#116;&#x2e;&#101;&#100;&#117;&#x2e;&#x63;&#110;</a> or <a href="mailto:&#50;&#x35;&#x38;&#x32;&#x32;&#x31;&#x37;&#x37;&#53;&#x34;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#50;&#x35;&#x38;&#x32;&#x32;&#x31;&#x37;&#x37;&#53;&#x34;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></li>
 </ul>
 <h2 id="Over"><a href="#Over" class="headerlink" title="Over"></a>Over</h2><ul>
 <li>欢迎下次光临</li>
@@ -352,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -388,7 +489,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
